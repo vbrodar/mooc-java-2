@@ -19,4 +19,33 @@ public class LicensePlate {
         return country + " " + liNumber;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.liNumber);
+        hash = 47 * hash + Objects.hashCode(country);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LicensePlate other = (LicensePlate) obj;
+        if (!Objects.equals(this.liNumber, other.liNumber)) {
+            return false;
+        }
+        if (!Objects.equals(this.country, other.country)) {
+            return false;
+        }
+        return true;
+    }
+
 }
